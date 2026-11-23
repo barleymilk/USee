@@ -41,6 +41,11 @@ spec:
             # application.yml의 local 프로필(DB·Redis 설정)을 쓰지 않고, 아래 환경 변수로 주입
             - name: SPRING_PROFILES_ACTIVE
               value: dev
+            # 공개 클러스터에서는 API 문서 생성과 Swagger UI를 끈다.
+            - name: SPRINGDOC_APIDOCS_ENABLED
+              value: "false"
+            - name: SPRINGDOC_SWAGGERUI_ENABLED
+              value: "false"
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://postgres.data.svc.cluster.local:5432/animal?currentSchema=core
             - name: SPRING_DATASOURCE_USERNAME

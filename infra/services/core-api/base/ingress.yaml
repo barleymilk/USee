@@ -1,5 +1,4 @@
 # 컨트롤러가 /api/core/v1/... 로 매핑되어 있으므로 경로를 자르지 않고 그대로 전달
-# /swagger-ui: core-api가 dev 프로필에서 띄우는 Swagger 통합 화면(4개 서비스 드롭다운, S15P31D106-339)
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -12,13 +11,6 @@ spec:
       http:
         paths:
           - path: /api/core
-            pathType: Prefix
-            backend:
-              service:
-                name: core-api
-                port:
-                  number: 8080
-          - path: /swagger-ui
             pathType: Prefix
             backend:
               service:

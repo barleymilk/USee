@@ -39,6 +39,11 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: dev
+            # 공개 클러스터에서는 API 문서 생성과 Swagger UI를 끈다.
+            - name: SPRINGDOC_APIDOCS_ENABLED
+              value: "false"
+            - name: SPRINGDOC_SWAGGERUI_ENABLED
+              value: "false"
             # 자기 테이블은 simulation 스키마(Flyway가 만든다), core 테이블(users·animal_breeds 등)은 SELECT 권한으로 읽는다
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://postgres.data.svc.cluster.local:5432/animal?currentSchema=simulation
